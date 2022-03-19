@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Code Mirror -->
+    <script src="codeMirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="codeMirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="codeMirror/theme/abcdef.css" />
+    <link rel="stylesheet" href="codeMirror/hint/show-hint.css" />
+    <script src="codeMirror/mode/javascript/javascript.js"></script>
+    <script src="codeMirror/hint/javascript-hint.js"></script>
+    <script src="codeMirror/hint/show-hint.js"></script>
+
+    <!-- Self contianed App References -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="js/app.js"></script>
+
+    <title>Scope Visualizer</title>
+  </head>
+  <body>
+    <div id="mainWrapper">
+      <div id="inputSection">
+        <p class="centeredText">
+          A Scope/Frame Visualizer for Simple JavaScript
+        </p>
+        <br />
+        <div id="codeEditor"></div>
+        <br />
+        <button id="runBtn">Run Code</button>
+      </div>
+      <div id="outputSection">
+        <p class="centeredText">Scope Frames Output (Click 'Run Code'):</p>
+        <br />
+        <div id="frameOutput"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.37);
+}
+
+.centeredText {
+  text-align: center;
+}
+
+#mainWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: 100%;
+}
+
+#inputSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+#outputSection {
+  padding: 20px;
+}
+
+#codeExample {
+  display: none;
+}
+.CodeMirror {
+  height: 100%;
+}
+#codeEditor {
+  width: 100%;
+
+  box-shadow: 0px 0px 15px gray;
+  /* padding: 5px;
+  background-color: rgb(128, 128, 128);
+  border-radius: 3px; */
+}
+
+#runBtn {
+}
