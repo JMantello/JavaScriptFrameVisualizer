@@ -10,7 +10,7 @@ let inputString;
 let frameOutput;
 let instructions;
 let globalFrame;
-let totalFrames = [];
+let totalFrames;
 
 function initElements() {
   // Set elements
@@ -36,6 +36,7 @@ function initElements() {
 }
 
 function run() {
+  totalFrames = [];
   inputString = codeEditor.getValue();
   instructions = parseInstructions(inputString);
   globalFrame = new Frame("Global");
