@@ -237,7 +237,7 @@ function buildFrames(frame, startReadingFrom, endReadingAt) {
             if (instructions[i] == ",") i++;
           }
 
-          newFrame.parent = frame;
+          newFrame.parent = fn.scope;
           buildFrames(newFrame, fn.start, fn.end);
           totalFrames.push(newFrame);
           functionCalled = true;
@@ -265,7 +265,7 @@ function buildFrames(frame, startReadingFrom, endReadingAt) {
               if (instructions[i] == ",") i++;
             }
 
-            newFrame.parent = frame;
+            newFrame.parent = fn.scope;
             buildFrames(newFrame, fn.start, fn.end);
             totalFrames.push(newFrame);
             functionCalled = true;
