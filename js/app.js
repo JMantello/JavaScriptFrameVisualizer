@@ -25,19 +25,34 @@ function initElements() {
     lineWiseCutCopy: true,
     autofocus: true,
   });
+  // Possible to use back tics for example input?
   exampleInput =
     "var global0 = 0;\nvar global1 = 0;\nvar global2 = 0;\n\nfunction changeGlobal() {\n\tglobal0 = 10;\n}\n\nfunction innerReassignment() {\n\tvar twoNum = 0;\n\ttwoNum = 2;\n}\n\nfunction containedScope() {\n\tvar containedNum = 0;\n\n\tfunction innerChangeGlobal() {\n\t\tglobal1 = 15;\n\t}\n\n\tinnerChangeGlobal();\n}\n\nglobal1 = 5;\nchangeGlobal();\ninnerReassignment();\ncontainedScope();";
-  // Possible to use back tics for example input?
-  codeEditor.doc.setValue(exampleInput);
+
+  // Get Local Input or Set Example
+  let localInput = localStorage.getItem("localInput");
+  if (localInput == null) {
+    inputString = exampleInput;
+  } else {
+    inputString = JSON.parse(localInput);
+  }
+
+  codeEditor.doc.setValue(inputString);
+
   frameOutput = document.getElementById("frameOutput");
 
   // Add listeners
   runBtn.addEventListener("click", run, false);
+  codeEditor.on("change", saveLocalData);
+}
+
+function saveLocalData() {
+  inputString = codeEditor.getValue();
+  localStorage.setItem("localInput", JSON.stringify(inputString));
 }
 
 function run() {
   totalFrames = [];
-  inputString = codeEditor.getValue();
   instructions = parseInstructions(inputString);
   globalFrame = new Frame("Global");
   totalFrames.push(globalFrame);
